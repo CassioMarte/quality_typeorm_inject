@@ -1,0 +1,55 @@
+# Arquivo .editorconfig
+
+# Aplicar regras a todos os arquivos
+[*]
+indent_style = space                 # Usa espaços para indentação (em vez de tabulações)
+indent_size = 4                      # Define o número de espaços usados por nível de indentação
+tab_width = 4                        # Define a largura de uma tabulação, caso existam tabs
+end_of_line = lf                     # Usa '\n' como terminador de linha (Linux/macOS padrão)
+insert_final_newline = true          # Adiciona uma nova linha ao final do arquivo ao salvar
+trim_trailing_whitespace = true      # Remove espaços em branco no final das linhas ao salvar
+
+
+
+# Regras para arquivos de código-fonte TypeScript
+[*.ts]
+indent_style = space                 # Usa espaços para indentação
+indent_size = 2                      # Usa 2 espaços, padrão para TypeScript
+tab_width = 2                        # Define largura da tabulação como 2 espaços
+end_of_line = lf                     # Usa '\n' como terminador de linha
+trim_trailing_whitespace = true      # Remove espaços no final das linhas
+insert_final_newline = true          # Adiciona uma linha em branco no final do arquivo
+
+# Regras específicas para arquivos Markdown
+# [*.md]
+# trim_trailing_whitespace = false     # Não remove espaços em branco no final das linhas para Markdown
+# max_line_length = off                # Desativa a verificação do comprimento máximo das linhas
+# charset = utf-8                      # Define a codificação dos arquivos Markdown como UTF-8
+
+# # Regras para arquivos de configuração
+# [*.{json,yaml,yml}]
+# indent_style = space                 # Usa espaços para indentação
+# indent_size = 2                      # Usa 2 espaços para indentação, padrão para JSON/YAML
+# trim_trailing_whitespace = true      # Remove espaços em branco no final das linhas
+# insert_final_newline = true          # Insere uma linha em branco no final do arquivo
+charset = utf-8                      # Define codificação como UTF-8
+
+# Regras para arquivos Makefile
+[Makefile]
+indent_style = tab                   # Usa tabs para indentação, padrão para Makefiles
+tab_width = 8                        # Define largura da tabulação como 8 espaços
+trim_trailing_whitespace = false     # Não remove espaços em branco no final das linhas
+
+# Regras para arquivos HTML
+[*.html]
+#indent_style = space                 # Usa espaços para indentação
+#indent_size = 2                      # Usa 2 espaços, comum para HTML
+#insert_final_newline = true          # Insere uma nova linha ao final do arquivo
+#trim_trailing_whitespace = true      # Remove espaços no final das linhas
+#max_line_length = 120                # Limita o comprimento das linhas a 120 caracteres
+
+# Regras para arquivos de texto
+[*.txt]
+#charset = utf-8                      # Define a codificação como UTF-8
+#trim_trailing_whitespace = false     # Não remove espaços em branco no final das linhas
+#insert_final_newline = true          # Adiciona uma nova linha ao final do arquivo
