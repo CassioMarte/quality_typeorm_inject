@@ -1,12 +1,11 @@
 import { Request, Response } from 'express';
 import { UserService } from '../service/User.Service';
+import { inject, injectable } from 'tsyringe';
 
+@injectable()
 export class UserController {
-  private userService: UserService;
-
-  constructor(userService: UserService) {
-    this.userService = userService; 
-  }
+ 
+  constructor(@inject(UserService) private userService:UserService) { }
 
   createUserController = async (
     req: Request,

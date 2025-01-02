@@ -1,6 +1,7 @@
 import { Repository } from 'typeorm';
 import { Users } from '../modules/User.entities';
 import { AppDataSource } from '../database/AppDataSource';
+import { injectable } from "tsyringe";
 
 export interface ICreateUser{
   name:string,
@@ -8,6 +9,7 @@ export interface ICreateUser{
   phone:string
 }
 
+@injectable()
 export class UserRepository {
   private readonly repository: Repository<Users>;
 

@@ -1,11 +1,11 @@
+import { inject, injectable } from 'tsyringe';
 import { Users } from '../modules/User.entities';
 import { ICreateUser, UserRepository } from '../repositories/User.Repository';
 
+@injectable()
 export class UserService {
-  private userRepository: UserRepository;
-  constructor(userRepository: UserRepository) {
-    this.userRepository = userRepository;
-  }
+ 
+ constructor(@inject(UserRepository) private userRepository: UserRepository){}
 
   createUserService = async (data: ICreateUser): Promise<Users> => {
     const { name, email, phone } = data;
