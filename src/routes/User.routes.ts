@@ -1,15 +1,21 @@
-import { Request,Response, Router } from "express";
-import { UserRepository } from "../repositories/User.Repository";
-import { UserService } from "../service/User.Service";
-import { UserController } from "../controller/User.Controller";
+import { Router } from 'express';
+import { UserController } from '../controller/User.Controller';
+import { UserRepository } from '../repositories/User.Repository';
+import { UserService } from '../service/User.Service';
 
-const router = Router();  
+export const usersRouter = Router();
 
 const userRepository = new UserRepository();
 const userService = new UserService(userRepository);
 const userController = new UserController(userService);
 
 // Forma correta de definir a rota
-router.post('/users', async (req:Request, res:Response) => {
-    return await userController.createUserController(req, res);
+usersRouter.post('/', async (req: Request, res: Response) => {
+  return await userController.createUserController(req, res);
 });
+
+usersRouter.get('/', async (req: Request, res: Response) => {
+  return await userController.showAllUserController(req, res);
+});
+
+
