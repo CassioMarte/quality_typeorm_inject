@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import { UserController } from '../controller/User.Controller';
 import { UserRepository } from '../repositories/User.Repository';
 import { UserService } from '../service/User.Service';
@@ -11,11 +11,11 @@ const userController = new UserController(userService);
 
 // Forma correta de definir a rota
 usersRouter.post('/', async (req: Request, res: Response) => {
-  return await userController.createUserController(req, res);
+  await userController.createUserController(req, res);
 });
 
 usersRouter.get('/', async (req: Request, res: Response) => {
-  return await userController.showAllUserController(req, res);
+  await userController.showAllUserController(req, res);
 });
 
 

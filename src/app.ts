@@ -1,7 +1,7 @@
-import 'reflect-metadata';
-import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import express from 'express';
+import 'reflect-metadata';
 import { AppDataSource } from './database/AppDataSource';
 import { usersRouter } from './routes/User.routes';
 
@@ -16,7 +16,7 @@ export const createApp = async () => {
   const app = express();
   app.use(express.json());
   app.use(cors());
-
+  app.use('/users', usersRouter);
 
   return app;
 };

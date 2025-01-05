@@ -5,46 +5,47 @@ export class UserController {
   private userService: UserService;
 
   constructor(userService: UserService) {
-    this.userService = userService; 
+    this.userService = userService;
   }
 
-  createUserController = async (
-    req: Request,
-    res: Response,
-  ): Promise<Response> => {
+  createUserController = async (req: Request, res: Response): Promise<void> => {
     try {
       const data = req.body;
+
       await this.userService.createUserService(data);
 
-      return res.status(201).json({
+      res.status(201).json({
         success: true,
         message: 'User created successfully',
       });
     } catch (error) {
       if (error instanceof Error) {
-        return res.status(400).json({
+        res.status(400).json({
           success: false,
           message: error.message,
         });
       }
 
-      return res.status(500).json({
+      res.status(500).json({
         success: false,
         message: 'Internal server error',
       });
     }
   };
 
-  showAllUserController = async (req:Request, res:Response) =>{
+  showAllUserController = async (
+    req: Request,
+    res: Response,
+  ): Promise<void> => {
     try {
-      const data = await this.userService.showUserService()
+      const data = await this.userService.showUserService();
 
-      return res.status(200).json(data)
+      res.status(200).json(data);
     } catch (error) {
-      return res.status(500).json({
-        success:false,
-        message:'Internal server error'
-      })
+      res.status(500).json({
+        success: false,
+        message: 'Internal server error',
+      });
     }
-  }
+  };
 }

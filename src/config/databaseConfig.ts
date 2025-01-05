@@ -6,7 +6,7 @@ dotenv.config();
 
 const databaseConfig: DataSourceOptions = {
   type: 'sqlite',
-  database: './src/database/database.sqlite',
+  database: './src/db/database.sqlite',
   entities: ['./src/database/entities/*.ts'],
   migrations: ['./src/database/migrations/*.ts'],
   logging: false,
@@ -15,7 +15,7 @@ const databaseConfig: DataSourceOptions = {
 const configurations = {
   production: {
     ...databaseConfig,
-    database: path.resolve(__dirname, './src/database/database.sqlite'),
+    database: path.join(__dirname, '..', 'db', 'database.sqlite'),
     synchronize: true,
   },
   test: {
@@ -27,10 +27,11 @@ const configurations = {
   },
 } as const;
 
-export const getDatabaseConfig = (env: 'production' | 'test'):
-DataSourceOptions=>{
-  return configurations[env]
-}
+export const getDatabaseConfig = (
+  env: 'production' | 'test',
+): DataSourceOptions => {
+  return configurations[env];
+};
 
 //config comum
 // import { DataSourceOptions } from 'typeorm'

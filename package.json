@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_module src/server.ts",
     "format": "prettier --write .",
-    "test": "jest"
+    "test": "NODE_ENV=test jest"
   },
   "keywords": [],
   "author": "",
